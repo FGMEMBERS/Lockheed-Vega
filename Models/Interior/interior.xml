@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>interior.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>interieur</object-name>
+    <object-name>inttour</object-name>
+    <object-name>intporte</object-name>
+
+    <!-- Objets transparents -->
+    <object-name>intvitres</object-name>
+    <object-name>intvitreporte</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>intvitres</object-name>
+    <object-name>intvitreporte</object-name>
+  </animation>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>shader.png</texture>
+    <object-name>intvitres</object-name>
+    <object-name>intvitreporte</object-name>
+  </animation>
+
+  <!-- Pilote -->
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/Pilot/pilot.xml</path>
+    <offsets>
+      <x-m> -2.659 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.133 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Planche de bord -->
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/Interior/Panel/panel.xml</path>
+    <offsets>
+      <x-m> -2.907 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.319 </z-m>
+    </offsets>
+  </model> -->
+
+  <!-- Door -->
+  <animation>
+    <type>rotate</type>
+    <object-name>intporte</object-name>
+    <object-name>intvitreporte</object-name>
+    <property>/instrumentation/doors/crew/position-norm</property>
+    <factor>-180</factor>
+    <center>
+      <x-m> -0.521 </x-m>
+      <y-m> -0.621 </y-m>
+      <z-m> -0.213 </z-m>
+    </center>
+    <axis>
+      <x> 0.000 </x>
+      <y> 0.000 </y>
+      <z> 1.000 </z>
+    </axis>
+  </animation>
+
+</PropertyList>
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- <PropertyList include="vega-jsbsim-cnf.xml"> -->
+<PropertyList include="vega-yasim-cnf.xml">
+
+  <sim>
+    <description>Lockheed Vega</description>
+    <author>Emmanuel BARANGER (3D/FDM)</author>
+  </sim>
+
+</PropertyList>
+

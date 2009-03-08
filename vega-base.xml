@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+
+    <author>Emmanuel BARANGER (3D/FDM)</author>
+    <aircraft-version>0.1</aircraft-version>
+    <status>Alpha</status>
+
+    <fuel-fraction>0.8</fuel-fraction>
+
+    <startup>
+     <splash-texture>Aircraft/Lockheed-Vega/vega-splash.png</splash-texture>
+    </startup>
+
+    <systems>
+     <electrical>
+      <path>Aircraft/j3cub/cub-electrical.xml</path>
+     </electrical>
+    </systems> 
+
+    <sound>
+     <path>Aircraft/Lockheed-Vega/Sounds/vega-sound.xml</path>
+    </sound>
+
+    <model>
+     <path archive="y">Aircraft/Lockheed-Vega/Models/vega.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic>
+        <int type="int" n="0">0</int>
+        <int type="int" n="1">0</int>
+        <int type="int" n="2">0</int>
+        <int type="int" n="3">0</int>
+        <int type="int" n="4">0</int>
+        <int type="int" n="5">0</int>
+      </generic>
+    </multiplay>
+
+    <help>
+      <title>Lockheed Vega</title>
+      <key>
+        <name>d</name>
+        <desc>Open/Close door</desc>
+      </key>
+    </help>
+
+    <menubar include="Dialogs/vega-menu.xml"/>
+
+  </sim>
+
+  <yasim>
+    <ryansosl>
+      <pilot-lb>180</pilot-lb>
+    </ryansosl>
+  </yasim>
+
+  <engines>
+    <engine>
+      <rpm type="double">700</rpm>
+    </engine>
+  </engines>
+
+  <input>
+    <keyboard include="Nasal/vega-keyboard.xml"/>
+  </input>
+
+  <nasal>
+    <vega>
+      <file>Aircraft/Lockheed-Vega/Nasal/doors.nas</file>
+      <file>Aircraft/Lockheed-Vega/Nasal/liveries.nas</file>
+    </vega>
+  </nasal>
+
+</PropertyList>
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList include="vega-base.xml">
+
+  <sim>
+
+    <description>Lockheed Vega (YASim)</description>
+    <flight-model>yasim</flight-model>
+    <aero>vega-yasim</aero>
+
+  </sim>
+  
+</PropertyList>
