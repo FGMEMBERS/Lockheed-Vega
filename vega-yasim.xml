@@ -13,27 +13,29 @@
 
 <airplane mass="2565" >
 
-  <approach speed="60" aoa="10" fuel="0.05" >
+  <approach speed="65" aoa="6" fuel="0.05" >
     <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
     <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
   </approach>
 
-  <cruise speed="143" alt="5000" fuel="0.5" >
+  <cruise speed="143" alt="0" fuel="0.5" >
     <control-setting axis="/controls/engines/engine[0]/throttle" value="1.0" />
     <control-setting axis="/controls/engines/engine[0]/mixture" value="0.6" />
   </cruise>
 
   <cockpit x="2.501" y="0" z="0.133"/>
 
-  <fuselage ax="4.120" ay="0.0" az="-0.253" bx="-4.107" by="0" bz="-0.130" width="1.342" taper="0.3" midpoint="0.2"/>
+  <fuselage ax="3.860" ay="0.0" az="-0.253" bx="-4.107" by="0" bz="-0.130" width="1.342" taper="0.3" midpoint="0.2"/>
 
-  <wing x="1.375" y="0.467" z="0.564"
+  <wing x="1.375" y="0" z="0.564"
         chord="2.485"
-        length="5.771"
+        length="6.238"
         taper="0.63"
-        camber="0.14">
+        camber="0.12"
+        dihedral="2"
+        sweep="-2">
         <stall aoa="14" width="5" peak="1.5"/>
-        <flap1 start="0.451" end="0.863" lift="1.4" drag="1.1"/>
+        <flap1 start="0.49" end="0.88" lift="1.4" drag="1.1"/>
 
         <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
         <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
@@ -59,7 +61,8 @@
   <vstab x="-3.150" y="0" z="0.090"
 	 chord="1.890"
 	 length="1.411"
-         taper="0.60">
+         taper="0.60"
+         sweep="10">
          <stall aoa="15" width="4" peak="1.5"/>
          <flap0 start="0" end="1" lift="1.3" drag="1.3"/>
 
@@ -70,23 +73,20 @@
   </vstab>
 
   <!-- sources   : http://dic.academic.ru/dic.nsf/enwiki/557429
-         Engines : Pratt & Whitney Wasp R1340C
+
+       Engines   : Pratt & Whitney Wasp R1340C
                  : 9 cylinders
                  : Displacement 1,343 in3 (  22 l  )
                  : weight         805 lb  ( 365 kg )
                  : Cruise         542 hp  (404 kW  ) at 2,200 rpm at 5,000 ft (1,525 m)
                  : Compression  6.0:1
-
-                                         Rayon * Rayon * Mass(kg)   1.44*1.44 * 365
-                 moment d'après la doc : ________________________ = _______________ = 252.288
-                                                     3                      3
   -->
   <propeller x="4.007" y="0.0" z="-0.253"
              mass="805"
-             moment="252.288"
+             moment="5"
              radius="1.44"
              cruise-power="450"
-             cruise-alt="5000"
+             cruise-alt="0"
              cruise-speed="143"
              cruise-rpm="2200"
              takeoff-power="300"
@@ -140,7 +140,7 @@
   <!-- Fuselage 1285.2 lbs -->
   <tank x="1.999" y="0" z="0.156" capacity="1285.2" />
 
-  <!-- CG théorique centre de la corde x=1.375 y=0.0 z=-0.564 -->
+  <!-- CG theorique centre de la corde x=1.375 y=0.0 z=-0.564 -->
   <ballast x="-2" y="0.0" z="-2" mass="400" />
 
 </airplane>
