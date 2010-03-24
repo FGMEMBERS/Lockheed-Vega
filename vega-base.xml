@@ -14,12 +14,6 @@
      <splash-texture>Aircraft/Lockheed-Vega/vega-splash.png</splash-texture>
     </startup>
 
-    <systems>
-     <electrical>
-      <path>Aircraft/j3cub/cub-electrical.xml</path>
-     </electrical>
-    </systems> 
-
     <sound>
      <path>Aircraft/Lockheed-Vega/Sounds/vega-sound.xml</path>
     </sound>

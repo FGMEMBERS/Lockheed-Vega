@@ -13,7 +13,7 @@
 
 <airplane mass="2565" >
 
-  <approach speed="65" aoa="6" fuel="0.05" >
+  <approach speed="73" aoa="8" fuel="0.05" >
     <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
     <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
   </approach>
@@ -23,16 +23,17 @@
     <control-setting axis="/controls/engines/engine[0]/mixture" value="0.6" />
   </cruise>
 
-  <cockpit x="2.501" y="0" z="0.133"/>
+  <cockpit x="2.512" y="0" z="0.587"/>
 
-  <fuselage ax="3.860" ay="0.0" az="-0.253" bx="-4.107" by="0" bz="-0.130" width="1.342" taper="0.3" midpoint="0.2"/>
+  <fuselage ax="3.860" ay="0.0" az="-0.253" bx="-4.107" by="0" bz="-0.130" width="1.342" taper="0.3" midpoint="0.02"/>
 
   <wing x="1.375" y="0" z="0.564"
         chord="2.485"
         length="6.238"
         taper="0.63"
-        camber="0.12"
+        camber="0.001"
         dihedral="2"
+        incidence="4"
         sweep="-2">
         <stall aoa="14" width="5" peak="1.5"/>
         <flap1 start="0.49" end="0.88" lift="1.4" drag="1.1"/>
@@ -83,7 +84,7 @@
   -->
   <propeller x="4.007" y="0.0" z="-0.253"
              mass="805"
-             moment="5"
+             moment="2.5"
              radius="1.44"
              cruise-power="450"
              cruise-alt="0"
@@ -140,8 +141,8 @@
   <!-- Fuselage 1285.2 lbs -->
   <tank x="1.999" y="0" z="0.156" capacity="1285.2" />
 
-  <!-- CG theorique centre de la corde x=1.375 y=0.0 z=-0.564 -->
-  <ballast x="-2" y="0.0" z="-2" mass="400" />
+  <!-- CG theorique centre de la corde x=1.375 y=0.0 z=-0.564 
+  <ballast x="0" y="0" z="-8" mass="400" /> -->
 
 </airplane>
 
