@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <path>Extrainglass.ac</path>
+  
+  <animation>
+    <!-- Objets transparents -->
+    <object-name>ExtRainintvitres1</object-name>
+    <object-name>ExtRainvitrecrew1</object-name>
+    
+    <object-name>ExtRainintvitres2</object-name>
+    <object-name>ExtRainvitrecrew2</object-name>
+    
+    <object-name>ExtRainintvitres3</object-name>
+    <object-name>ExtRainvitrecrew3</object-name>
+  </animation>    
+  
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/Diamond-Da42/Models/Effects/Glass/glass</inherits-from>
+    <object-name>ExtRainintvitres1</object-name>
+    <object-name>ExtRainvitrecrew1</object-name>
+    
+    <object-name>ExtRainintvitres2</object-name>
+    <object-name>ExtRainvitrecrew2</object-name>
+    
+    <object-name>ExtRainintvitres3</object-name>
+    <object-name>ExtRainvitrecrew3</object-name>
+  </effect>
+  
+  <animation>
+    <name>ensemble1</name>
+    <object-name>ExtRainintvitres1</object-name>
+    <object-name>ExtRainvitrecrew1</object-name>
+  </animation>
+  
+  <animation>
+    <name>ensemble2</name>
+    <object-name>ExtRainintvitres2</object-name>
+    <object-name>ExtRainvitrecrew2</object-name>
+  </animation>
+  
+  <animation>
+    <name>ensemble3</name>
+    <object-name>ExtRainintvitres3</object-name>
+    <object-name>ExtRainvitrecrew3</object-name>
+  </animation>
+  
+  <animation>
+    <type>timed</type>
+    <object-name>ensemble1</object-name>
+    <object-name>ensemble2</object-name>
+    <object-name>ensemble3</object-name>
+    <use-personality type="bool">true</use-personality>
+    <branch-duration-sec>0.1</branch-duration-sec>
+    <branch-duration-sec>0.1</branch-duration-sec>
+    <branch-duration-sec>0.1</branch-duration-sec>
+  </animation>
+  
+  <!-- Door -->
+  <animation>
+    <name>ExtRainTheDoor</name>
+    <object-name>ExtRainvitrecrew1</object-name>
+    <object-name>ExtRainvitrecrew2</object-name>
+    <object-name>ExtRainvitrecrew3</object-name>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <object-name>ExtRainTheDoor</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crew.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>ExtRainTheDoor</object-name>
+    <property>sim/model/door-positions/crew/position-norm</property>
+    <factor> -180 </factor>
+    <center>
+      <x-m> -0.521 </x-m>
+      <y-m> -0.621 </y-m>
+      <z-m> -0.213 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+  
+</PropertyList>
