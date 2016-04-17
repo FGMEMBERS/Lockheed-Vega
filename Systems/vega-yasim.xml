@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Lockheed Vega - 2009 BARANGER Emmanuel
+
+      Source       : https://en.wikipedia.org/wiki/Lockheed_Vega 
+
+      Wingspan     : 12.49 m ( 41 ft 0 in )
+      Length       :  8.38 m ( 27 ft 6 in )
+      Height       :  2.59 m (  8 ft 6 in)
+      Engines      : 1 x Pratt & Whitney Wasp R1340C (500 ch )
+      Empty mass   : 1163 kg ( 2565 lb )
+      Cruise speed : 256 km/h (143 kts)
+      Cruise max   : 298 km/h (160 kts)
+-->
+<airplane mass="2565" version="YASIM_VERSION_CURRENT">
+  
+  <approach speed="73" aoa="2" fuel="0.05">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
+  </approach>
+  
+  <cruise speed="143" alt="0" fuel="0.5">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.6"/>
+  </cruise>
+  
+  <cockpit x="2.452" y="0" z="0.427"/>
+
+  <!-- Fuselage -->  
+  <fuselage ax=" 3.860" ay=" 0.000" az="-0.253" bx=" 3.700" by=" 0.000" bz="-0.253" width="1.342" taper="0.7" midpoint="1"/>
+  <fuselage ax=" 3.700" ay=" 0.000" az="-0.253" bx=" 2.924" by=" 0.000" bz="-0.253" width="1.342" taper="1.0" midpoint="1"/>
+  <fuselage ax=" 2.972" ay=" 0.000" az="-0.302" bx=" 2.094" by=" 0.000" bz="-0.302" width="1.244" taper="0.8" midpoint="1"/> 
+  <fuselage ax=" 2.094" ay=" 0.000" az="-0.302" bx="-0.023" by=" 0.000" bz="-0.302" width="1.244" taper="1.0" midpoint="1"/> 
+  <fuselage ax="-0.023" ay=" 0.000" az="-0.302" bx="-3.998" by=" 0.000" bz="-0.135" width="1.244" taper="0.2" midpoint="0"/> 
+  <fuselage ax="-0.019" ay=" 0.000" az="-0.165" bx="-3.998" by=" 0.000" bz="-0.135" width="1.244" taper="0.2" midpoint="0"/> 
+  <!-- Cabine -->
+  <fuselage ax=" 2.972" ay=" 0.000" az=" 0.103" bx=" 2.523" by=" 0.000" bz=" 0.103" width="0.989" taper="0.4" midpoint="1"/> 
+  <fuselage ax=" 2.523" ay=" 0.000" az=" 0.103" bx=" 0.803" by=" 0.000" bz=" 0.103" width="0.989" taper="1.0" midpoint="1"/> 
+  <fuselage ax=" 0.803" ay=" 0.000" az=" 0.103" bx="-0.249" by=" 0.000" bz=" 0.103" width="0.989" taper="0.6" midpoint="0"/> 
+  
+  <wing x="1.375" y="0" z="0.564"
+        chord="2.485"
+        length="6.238"
+        taper="0.63"
+        dihedral="2"
+        sweep="-2"
+        camber="0.004">
+        <stall aoa="24" width="1" peak="1.5"/>
+        <flap1 start="0.49" end="0.88" lift="1.2" drag="1.1"/>
+    
+        <control-input  control="FLAP1" axis="/controls/flight/aileron" split="true"/>
+        <control-input  control="FLAP1" axis="/controls/flight/aileron-trim" split="true"/>
+    
+        <control-output control="FLAP1" side="left"  prop="surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="surface-positions/right-aileron-pos-norm"/>
+    
+  </wing>
+  
+  <hstab x="-3.105" y="0" z="-0.123"
+         chord="1.352"
+         length="2.149"
+         taper="1">
+         <stall aoa="22" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
+    
+         <control-input  control="FLAP0" axis="/controls/flight/elevator"/>
+         <control-input  control="FLAP0" axis="/controls/flight/elevator-trim"/>
+    
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+  
+  <vstab x="-3.150" y="0" z="0.090"
+         chord="1.890"
+         length="1.411"
+         taper="0.60"
+         sweep="10">
+         <stall aoa="14" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
+    
+         <control-input  control="FLAP0" axis="/controls/flight/rudder"      invert="true"/>
+         <control-input  control="FLAP0" axis="/controls/flight/rudder-trim" invert="true"/>
+    
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+  
+  <!-- sources   : https://en.wikipedia.org/wiki/Pratt_%26_Whitney_R-1340_Wasp
+  
+       Engines      : Pratt & Whitney Wasp R1340C
+       Type         : 9 cylinder single-row supercharged air-cooled radial engine
+       Displacement : 1343 in3 (  22 l  )
+       weight       :  805 lb  ( 365 kg )
+       Cruise       :  542 hp  ( 404 kW ) at 2200 rpm at 5000 ft (1525 m)
+       Compression  :  6.0:1
+  -->
+  <propeller x="4.007" y="0.0" z="-0.253"
+             mass="805"
+             moment="11"
+             radius="1.44"
+             cruise-power="450"
+             cruise-alt="5000"
+             cruise-speed="143"
+             cruise-rpm="2200"
+             takeoff-power="300"
+             takeoff-rpm="1950">
+             <actionpt x="4.000" y="0.0" z="-0.253"/>
+             <piston-engine eng-rpm="2700"
+                            eng-power="500"
+                            displacement="1343"
+                            compression="6">
+                            <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
+                            <control-input control="STARTER"  axis="/controls/engines/engine[0]/starter"/>
+                            <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
+                            <control-input control="MIXTURE"  axis="/controls/engines/engine[0]/mixture"/>
+             </piston-engine>
+  </propeller>
+  
+  <!-- left main -->
+  <gear x="2.080" y="1.214" z="-1.972"
+        compression="0.2"
+        spring="0.8"
+        damp="1.2"
+        sfric="1"
+        dfric="1">
+        <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+  </gear>
+  
+  <!-- right main -->
+  <gear x="2.080" y="-1.214" z="-1.972"
+        compression="0.2"
+        spring="0.8"
+        damp="1.2"
+        sfric="1"
+        dfric="1">
+        <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+  </gear>
+  
+  <!-- Tail wheel  -->
+  <gear x="-2.624" y="0" z="-0.875"
+        compression="0.2"
+        spring="0.8"
+        damp="1.2"
+        sfric="1.0"
+        dfric="1.0">
+        <control-input axis="/controls/flight/rudder" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="0.8" dst1="-0.8"/>
+  </gear>
+    
+  <!-- Fuel  -->  
+  <!-- Wing 526.3 lbs -->
+  <tank x=" 1.5" y=" 2" z=" 0.6" capacity=" 526.3"/>
+  <tank x=" 1.5" y="-2" z=" 0.6" capacity=" 526.3"/>
+  <!-- Fuselage 1285.2 lbs -->
+  <tank x="-1.0" y=" 0" z="-0.8" capacity="1285.2"/>
+    
+</airplane>
