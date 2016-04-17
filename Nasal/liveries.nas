@@ -1,2 +1,1 @@
-aircraft.livery.init("Aircraft/Ryan-SoSL/Models/Liveries");
-
+aircraft.livery.init("Aircraft/Lockheed-Vega/Models/Liveries");
