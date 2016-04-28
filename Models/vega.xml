@@ -1,18 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
   <path>vega.ac</path>
 
+  <!-- MP sound call -->
+  <sound>
+    <path>Aircraft/Lockheed-Vega/Sounds/mp-sound.xml</path>
+  </sound>
+  
   <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/Lockheed-Vega/Models/Liveries", 10);
+      
+      var self = cmdarg();
+      
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("sim/model/door-positions/crew/position-norm", 1);
+      var passenger_door = self.getNode("sim/model/door-positions/passenger/position-norm", 1);
+      
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
     </load>
+    
     <unload>
       livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
     </unload>
   </nasal>
-
+  
   <animation>
     <!-- Objets opaques -->
     <object-name>fuselage</object-name>
@@ -24,37 +43,33 @@
     <object-name>profondeur</object-name>
     <object-name>aileronrG</object-name>
     <object-name>aileronrD</object-name>
-    <object-name>roueG</object-name>
-    <object-name>roueD</object-name> 
-    <object-name>roueA</object-name> 
-    <object-name>caches</object-name> 
     <object-name>bol</object-name>
     <object-name>helice</object-name>
+    <object-name>axesG</object-name>
+    <object-name>axesD</object-name>
+    <object-name>axes3G</object-name>
+    <object-name>axes3D</object-name>
+    <object-name>cachesG</object-name> 
+    <object-name>cachesD</object-name> 
+    <object-name>pitot</object-name> 
+    
+    <object-name>trous</object-name>
+    <object-name>trousaxe3G</object-name>
+    <object-name>echappes</object-name> 
+    <object-name>roueG</object-name>
+    <object-name>intcachesG</object-name>
+    <object-name>trousaxe3D</object-name>
+    <object-name>roueD</object-name> 
+    <object-name>intcachesD</object-name>
     <object-name>axeA</object-name>
-    <object-name>axes</object-name>
-    <object-name>axes2</object-name>
-    <object-name>axes3</object-name>
-
+    <object-name>axeA2</object-name>
+    <object-name>roueA</object-name> 
+    
     <!-- Objets transparents -->
     <object-name>vitres</object-name>
     <object-name>vitreporte</object-name>
     <object-name>propdisc</object-name>
     <object-name>propblur</object-name>
-  </animation>
-
-  <animation>
-    <type>noshadow</type>
-    <object-name>vitres</object-name>
-    <object-name>vitreporte</object-name>
-    <object-name>propdisc</object-name>
-    <object-name>propblur</object-name>
-  </animation>
-
-  <animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>glass_shader.png</texture>
-    <object-name>vitres</object-name>
   </animation>
 
   <animation>
@@ -68,59 +83,90 @@
     <object-name>profondeur</object-name>
     <object-name>aileronrG</object-name>
     <object-name>aileronrD</object-name>
-    <object-name>roueG</object-name>
-    <object-name>roueD</object-name> 
-    <object-name>roueA</object-name> 
-    <object-name>caches</object-name> 
     <object-name>bol</object-name>
     <object-name>helice</object-name>
+    <object-name>axesG</object-name>
+    <object-name>axesD</object-name>
+    <object-name>axes2G</object-name>
+    <object-name>axes2D</object-name>
+    <object-name>axes3G</object-name>
+    <object-name>axes3D</object-name>
+    <object-name>cachesG</object-name> 
+    <object-name>cachesD</object-name> 
+    <object-name>pitot</object-name> 
+    
+    <object-name>trous</object-name>
+    <object-name>trousaxe3G</object-name>
+    <object-name>echappes</object-name> 
+    <object-name>roueG</object-name>
+    <object-name>intcachesG</object-name>
+    <object-name>trousaxe3D</object-name>
+    <object-name>roueD</object-name> 
+    <object-name>intcachesD</object-name>
     <object-name>axeA</object-name>
-    <object-name>axes</object-name>
-    <object-name>axes2</object-name>
-    <object-name>axes3</object-name>
-
+    <object-name>axeA2</object-name>
+    <object-name>roueA</object-name> 
+    
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>texture.png</texture>
-<!--
-    <diffuse>
-      <red-prop>diffuse/red</red-prop>
-      <green-prop>diffuse/green</green-prop>
-      <blue-prop>diffuse/blue</blue-prop>
-    </diffuse>
-
-    <ambient>
-      <red-prop>ambient/red</red-prop>
-      <green-prop>ambient/green</green-prop>
-      <blue-prop>ambient/blue</blue-prop>
-    </ambient>
--->
     <specular>
       <red-prop>specular/red</red-prop>
       <green-prop>specular/green</green-prop>
       <blue-prop>specular/blue</blue-prop>
     </specular>
-
-    <emission>
-      <red-prop>emission/red</red-prop>
-      <green-prop>emission/green</green-prop>
-      <blue-prop>emission/blue</blue-prop>
-    </emission>
-<!--
-    <shininess>
-      <shininess-prop>shininess</shininess-prop>
-    </shininess>
--->
   </animation>
 
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/Lockheed-Vega/Models/Effects/Glass/glass</inherits-from>
+    <object-name>vitres</object-name>
+  </effect>
+  
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitres</object-name>
+    <object-name>vitreporte</object-name>
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+  </effect>
+  
+  <animation>
+    <type>select</type>
+    <object-name>vitres</object-name>
+    <object-name>vitreporte</object-name>
+    <condition>
+      <less-than>
+        <property>/environment/rain-norm</property>
+        <value>0.1</value>
+      </less-than>
+    </condition>
+  </animation>
+  
+  <!-- Raind Drops Effect -->
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/Effects/RainDrops/Extrainglass.xml</path>
+    <condition>
+      <greater-than>
+        <property>/environment/rain-norm</property>
+        <value>0.1</value>
+      </greater-than>
+    </condition>
+  </model>
+  
+  <!-- Shadow -->
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/shadow.xml</path>
+    <offsets>
+      <x-m>  0.0 </x-m>
+      <y-m>  0.0 </y-m>
+      <z-m> -1.7 </z-m>
+    </offsets>
+  </model>
+  
   <!-- Interieur -->
   <model>
     <path>Aircraft/Lockheed-Vega/Models/Interior/interior.xml</path>
-    <offsets>
-      <x-m> 0.000 </x-m>
-      <y-m> 0.000 </y-m>
-      <z-m> 0.000 </z-m>
-    </offsets>
   </model>
 
   <!-- Moteur -->
@@ -133,6 +179,56 @@
     </offsets>
   </model>
 
+  <!-- Cranking effects -->
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -2.68821 </x-m>
+      <y-m> -0.29571 </y-m>
+      <z-m> -0.88714 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -2.68821 </x-m>
+      <y-m>  0.29571 </y-m>
+      <z-m> -0.88714 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Effets sur le sol -->
+  <!-- Roue gauche -->
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/Effects/ground/ground0.xml</path>
+    <offsets>
+      <x-m> -2.080 </x-m>
+      <y-m> -1.214 </y-m>
+      <z-m> -1.972 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Roue droite -->
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/Effects/ground/ground1.xml</path>
+    <offsets>
+      <x-m> -2.080 </x-m>
+      <y-m>  1.214 </y-m>
+      <z-m> -1.972 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Patte de queue -->
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/Effects/ground/ground2.xml</path>   
+    <offsets>
+      <x-m>  2.624 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.875 </z-m>
+    </offsets>
+  </model>
+  
   <animation>
     <name>HeliceComplete</name>
     <object-name>propdisc</object-name>
@@ -177,7 +273,7 @@
     <condition>
       <less-than>
         <property>/engines/engine[0]/rpm</property>
-	<value>900</value>
+        <value>900</value>
       </less-than>
     </condition>
   </animation>
@@ -185,6 +281,12 @@
   <animation>
     <type>spin</type>
     <object-name>HeliceComplete</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value> 15 </value>
+      </greater-than>
+    </condition>
     <property>/engines/engine[0]/rpm</property>
     <factor> 1 </factor>
     <center>
@@ -193,9 +295,9 @@
       <z-m> -0.253 </z-m>
     </center>
     <axis>
-      <x> -1.000 </x>
-      <y>  0.000 </y>
-      <z>  0.000 </z>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
     </axis>
   </animation>
 
@@ -204,16 +306,16 @@
     <type>rotate</type>
     <object-name>profondeur</object-name>
     <property>/controls/flight/elevator</property>
-    <factor>11</factor>
+    <factor> 15 </factor>
     <center>
       <x-m>  3.265 </x-m>
       <y-m>  0.000 </y-m>
       <z-m> -0.127 </z-m>
     </center>
     <axis>
-      <x> 0.000 </x>
-      <y> 1.000 </y>
-      <z> 0.000 </z>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
     </axis>
   </animation>
 
@@ -222,16 +324,16 @@
     <type>rotate</type>
     <object-name>direction</object-name>
     <property>/controls/flight/rudder</property>
-    <factor>20</factor>
+    <factor> 15 </factor>
     <center>
       <x-m> 3.371 </x-m>
       <y-m> 0.000 </y-m>
       <z-m> 0.770 </z-m>
     </center>
     <axis>
-      <x> 0.000 </x>
-      <y> 0.000 </y>
-      <z> 1.000 </z>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
     </axis>
   </animation>
 
@@ -240,7 +342,7 @@
     <type>rotate</type>
     <object-name>aileronG</object-name>
     <property>/surface-positions/left-aileron-pos-norm</property>
-    <factor>18</factor>
+    <factor> 18 </factor>
     <axis>
       <x1-m> -1.071 </x1-m>
       <y1-m> -5.462 </y1-m>
@@ -255,7 +357,7 @@
     <type>rotate</type>
     <object-name>aileronD</object-name>
     <property>/surface-positions/right-aileron-pos-norm</property>
-    <factor>18</factor>
+    <factor> 18 </factor>
     <axis>
       <x1-m> -0.842 </x1-m>
       <y1-m>  3.066 </y1-m>
@@ -264,135 +366,133 @@
       <y2-m>  5.462 </y2-m>
       <z2-m>  0.664 </z2-m>
     </axis>
-  </animation> -->
+  </animation>
 
-  <!-- Compression
+  <!-- Compression -->
   <animation>
-    <type>rotate</type>
+    <name>EnsembleGauche</name>
+    <object-name>axesG</object-name>
+    <object-name>cachesG</object-name>
+    <object-name>intcachesG</object-name>
     <object-name>roueG</object-name>
-    <object-name>axeG</object-name>
-    <object-name>axe2G</object-name>
-    <object-name>cacheG</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EnsembleGauche</object-name>
     <property>/gear/gear[0]/compression-norm</property>
     <interpolation>
-      <entry>
-        <ind>  0.0 </ind>
-        <dep> 14.0 </dep>
-      </entry>
-      <entry>
-        <ind> 0.300 </ind>
-        <dep> 0.000 </dep>
-      </entry>
-      <entry>
-        <ind> 1.000 </ind>
-        <dep> 0.000 </dep>
-      </entry>
+      <entry><ind> 0 </ind><dep>  0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -4 </dep></entry>
     </interpolation>
     <center>
-      <x-m> -2.258 </x-m>
-      <y-m> -0.538 </y-m>
-      <z-m> -0.510 </z-m>
+      <x-m> -0.67224 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m> -0.89003 </z-m>
     </center>
     <axis>
-      <x> 1.000 </x>
-      <y> 0.000 </y>
-      <z> 0.000 </z>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
     </axis>
   </animation>
 
   <animation>
     <type>rotate</type>
-    <object-name>suspensionG</object-name>
+    <object-name>axes3G</object-name>
+    <object-name>trousaxe3G</object-name>
     <property>/gear/gear[0]/compression-norm</property>
     <interpolation>
-      <entry>
-        <ind> 0.0 </ind>
-        <dep> 5.0 </dep>
-      </entry>
-      <entry>
-        <ind> 0.300 </ind>
-        <dep> 0.000 </dep>
-      </entry>
-      <entry>
-        <ind> 1.000 </ind>
-        <dep> 0.000 </dep>
-      </entry>
+      <entry><ind> 0 </ind><dep>  0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -4 </dep></entry>
     </interpolation>
     <center>
-      <x-m> -2.245 </x-m>
-      <y-m> -1.306 </y-m>
-      <z-m> -0.181 </z-m>
+      <x-m> -2.00528 </x-m>
+      <y-m> -0.59217 </y-m>
+      <z-m> -0.43506 </z-m>
     </center>
     <axis>
-      <x> 1.000 </x>
-      <y> 0.000 </y>
-      <z> 0.000 </z>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
     </axis>
   </animation>
-
+  
   <animation>
-    <type>rotate</type>
+    <name>EnsembleDroit</name>
+    <object-name>axesD</object-name>
+    <object-name>cachesD</object-name>
+    <object-name>intcachesD</object-name>
     <object-name>roueD</object-name>
-    <object-name>axeD</object-name>
-    <object-name>axe2D</object-name>
-    <object-name>cacheD</object-name>
-    <property>/gear/gear[1]/compression-norm</property>
-    <interpolation>
-      <entry>
-        <ind>   0.0 </ind>
-        <dep> -14.0 </dep>
-      </entry>
-      <entry>
-        <ind> 0.300 </ind>
-        <dep> 0.000 </dep>
-      </entry>
-      <entry>
-        <ind> 1.000 </ind>
-        <dep> 0.000 </dep>
-      </entry>
-    </interpolation>
-    <center>
-      <x-m> -2.258 </x-m>
-      <y-m>  0.538 </y-m>
-      <z-m> -0.510 </z-m>
-    </center>
-    <axis>
-      <x> 1.000 </x>
-      <y> 0.000 </y>
-      <z> 0.000 </z>
-    </axis>
   </animation>
-
+  
   <animation>
     <type>rotate</type>
-    <object-name>suspensionD</object-name>
+    <object-name>EnsembleDroit</object-name>
     <property>/gear/gear[1]/compression-norm</property>
     <interpolation>
-      <entry>
-        <ind>  0.0 </ind>
-        <dep> -5.0 </dep>
-      </entry>
-      <entry>
-        <ind> 0.300 </ind>
-        <dep> 0.000 </dep>
-      </entry>
-      <entry>
-        <ind> 1.000 </ind>
-        <dep> 0.000 </dep>
-      </entry>
+      <entry><ind> 0 </ind><dep> 0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 4 </dep></entry>
     </interpolation>
     <center>
-      <x-m> -2.245 </x-m>
-      <y-m>  1.306 </y-m>
-      <z-m> -0.181 </z-m>
+      <x-m> -0.67224 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m> -0.89003 </z-m>
     </center>
     <axis>
-      <x> 1.000 </x>
-      <y> 0.000 </y>
-      <z> 0.000 </z>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
     </axis>
-  </animation> -->
-
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>axes3D</object-name>
+    <object-name>trousaxe3D</object-name>
+    <property>/gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 4 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -2.00528 </x-m>
+      <y-m>  0.59217 </y-m>
+      <z-m> -0.43506 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <name>Rouelette</name>
+    <object-name>axeA2</object-name>
+    <object-name>roueA</object-name>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Rouelette</object-name>
+    <property>gear/gear[2]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -15 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m>  2.50640 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m> -0.64823 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
   <!-- Rotation des roues lors du roulage -->
   <animation>
     <type>spin</type>
@@ -405,9 +505,9 @@
       <z-m> -1.572 </z-m>
     </center>
     <axis>
-      <x>  0.000 </x>
-      <y> -1.000 </y>
-      <z>  0.000 </z>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
     </axis>
   </animation>
 
@@ -422,9 +522,9 @@
       <z-m> -1.572 </z-m>
     </center>
     <axis>
-      <x>  0.000 </x>
-      <y> -1.000 </y>
-      <z>  0.000 </z>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
     </axis>
   </animation>
 
@@ -439,30 +539,94 @@
       <z-m> -0.749 </z-m>
     </center>
     <axis>
-      <x>  0.000 </x>
-      <y> -1.000 </y>
-      <z>  0.000 </z>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
     </axis>
   </animation>
 
   <!-- Door -->
   <animation>
-    <type>rotate</type>
+    <name>TheDoor</name>
     <object-name>porte</object-name>
     <object-name>vitreporte</object-name>
-    <property>/instrumentation/doors/crew/position-norm</property>
-    <factor>-180</factor>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <object-name>TheDoor</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crew.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>TheDoor</object-name>
+    <property>sim/model/door-positions/crew/position-norm</property>
+    <factor> -180 </factor>
     <center>
       <x-m> -0.521 </x-m>
       <y-m> -0.621 </y-m>
       <z-m> -0.213 </z-m>
     </center>
     <axis>
-      <x> 0.000 </x>
-      <y> 0.000 </y>
-      <z> 1.000 </z>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
     </axis>
   </animation>
 
+  <!-- Ajout des effets lumineux -->
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/lights/beacon.xml</path>
+    <offsets>
+      <x-m> 3.17649 </x-m>
+      <y-m> 0.00000 </y-m>
+      <z-m> 1.49531 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/lights/RedLight.xml</path>
+    <offsets>
+      <x-m> -1.73141 </x-m>
+      <y-m> -6.23869 </y-m>
+      <z-m>  0.72233 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/lights/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -1.70600 </x-m>
+      <y-m> -6.23869 </y-m>
+      <z-m>  0.72233 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/lights/GreenLight.xml</path>
+    <offsets>
+      <x-m> -1.73141 </x-m>
+      <y-m>  6.23869 </y-m>
+      <z-m>  0.72233 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Lockheed-Vega/Models/lights/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -1.70600 </x-m>
+      <y-m>  6.23869 </y-m>
+      <z-m>  0.72233 </z-m>
+    </offsets>
+  </model>
+  
 </PropertyList>
-
